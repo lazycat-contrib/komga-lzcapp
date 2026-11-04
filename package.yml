@@ -1,0 +1,17 @@
+package: community.lazycat.app.komga
+name: Komga
+description: "Media server for comics, manga, BDs, magazines and eBooks with a web reader and OPDS support."
+version: 1.29.2
+min_os_version: "1.5.0"
+homepage: https://komga.org/
+author: Gauthier Roebroeck
+license: MIT
+permissions:
+  required: []
+locales:
+  zh:
+    name: Komga
+    description: "漫画与电子书媒体服务器：支持 CBZ/CBR/PDF/EPUB，网页阅读器与 OPDS 订阅。"
+  en:
+    name: Komga
+    description: "Media server for comics, manga, BDs, magazines and eBooks with a web reader and OPDS support."

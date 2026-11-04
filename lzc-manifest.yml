@@ -1,0 +1,34 @@
+application:
+  subdomain: komga
+  multi_instance: false
+  # Komga has its own login and user accounts, so it authenticates itself.
+  public_path:
+    - /
+  ingress:
+    - protocol: http
+      port: 25600
+      backend: http://komga:25600/
+  env:
+    TZ: Asia/Shanghai
+    SERVER_PORT: "25600"
+  usage: |
+    Komga 是漫画与电子书媒体服务器：支持 CBZ / CBR / PDF / EPUB 等格式，
+    自带网页阅读器与 OPDS 订阅（可用于第三方阅读 App）。
+
+    首次打开会引导创建管理员账号（邮箱 + 密码），无内置口令。
+
+    把漫画/电子书放进 data 目录（通过文件管理器访问），
+    然后在网页端「添加媒体库」指向该目录并扫描即可。
+
+    说明：
+      - 应用直接对外开放，由 Komga 自己的登录页鉴权，所以使用 public_path。
+      - 未做实机验证。
+services:
+  komga:
+    image: docker.1ms.run/gotson/komga:1.29.2
+    environment:
+      - TZ=Asia/Shanghai
+      - SERVER_PORT=25600
+    binds:
+      - /lzcapp/var/config:/config
+      - /lzcapp/var/data:/data
