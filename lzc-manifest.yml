@@ -25,6 +25,7 @@ application:
       - 未做实机验证。
 services:
   komga:
+    # upstream: gotson/komga:1.29.2
     image: docker.1ms.run/gotson/komga:1.29.2
     environment:
       - TZ=Asia/Shanghai
